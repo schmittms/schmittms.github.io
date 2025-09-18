@@ -1,0 +1,305 @@
+/* --- styles.css --- */
+
+/* 1. Style the entire page background */
+body {
+  /* Reset default browser margin */
+  margin: 0; 
+  font-family: sans-serif; /* A nice default font */
+
+  /* This is the magic part for the background. It uses multiple background layers.
+    - The first layer is a semi-transparent color (the overlay).
+    - The second layer is your image.
+  */
+  background: 
+    linear-gradient(rgba(247, 253, 247, 0.6), rgba(247, 253, 247, 0.6)),
+   /* linear-gradient(rgba(188, 196, 188, 0.6), rgba(188, 196, 188, 0.6)), */
+    url('../assets/photos/photo_professional_cropped.jpeg');
+
+  /* These properties make the background image behave nicely */
+  background-size: cover; /* Cover the entire screen without stretching */
+  background-position: center; /* Center the image */
+  background-attachment: fixed; /* Image stays in place when scrolling (parallax effect) */
+}
+
+/* ADD this new rule to styles.css */
+/* This rule ONLY applies on the homepage */
+body.home {
+    display: flex;
+    flex-direction: column; /* Stacks children (nav and main-stripe) vertically */
+    min-height: 100vh;
+    margin: 0;
+}
+
+body.home .main-stripe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+/* 2. Style the main content stripe */
+.main-stripe {
+  width: 70%; /* Takes up 70% of the screen width */
+  /* min-height: 100vh;  so stripe is at least as tall as screen */
+  margin: 0 auto; /* The 'auto' on left/right centers the element */
+  background-color: rgb(236, 255, 242);
+  padding: 30px 50px; /* padding so content isn't stuck to edges */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  
+  /* Helps with responsive behavior on smaller screens */
+  box-sizing: border-box; 
+
+  /* display: flex;
+   justify-content: center; Horizontally centers the content 
+  align-items: center;     /* Vertically centers the content */
+}
+
+.home-layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 85vh; /* A little less than 100vh to account for padding */
+}
+
+
+/* Main container for the two-column profile section */
+.profile-container {
+    display: flex; /* This is what puts the photo and details side-by-side */
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 80px; /* Creates a nice buffer space between the photo and the text */
+    /*margin-bottom: 40px;  Adds space below the whole profile section */
+}
+
+/* --- ADD this new rule for the About Me text --- */
+.about-me-text {
+    margin-bottom: 30px; /* Adds a nice space above the Research/CV/Blog links */
+}
+.about-me-text h2 {
+    margin-top: 0;
+}
+
+/* Styling for the circular profile photo */
+.profile-photo-column img {
+    width: 240px;  /* Set the width of the photo */
+    height: 240px; /* Set the height (must be same as width for a circle) */
+    border-radius: 50%; /* This is the magic that makes it a circle */
+    object-fit: cover; /* Prevents the image from being squished or stretched */
+    border: 5px solid #fff; /* Adds a nice white border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* A subtle shadow for depth */
+}
+
+/* A flex container for the details to stack them vertically */
+.profile-details-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling for the vertical text links */
+.vertical-links {
+    list-style-type: none; /* Removes the default bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-links li a {
+    display: block; /* Makes the whole area clickable */
+    padding: 8px 0; /* Adds vertical spacing */
+    font-size: 1.5rem; /* Makes the font larger */
+    font-weight: bold;
+    color: #2c3e50; /* A dark, soft color */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.vertical-links li a:hover {
+    color: #007bff; /* A highlight color on hover */
+}
+
+/* Styling for the horizontal icon links */
+.icon-links {
+    list-style-type: none;
+    margin: 20px 0 0 0; /* Adds space above the icons */
+    padding: 0;
+    display: flex; /* This makes the icons line up horizontally */
+    gap: 20px; /* Space between the icons */
+}
+
+.icon-links img {
+    width: 36px; /* Size of the icons */
+    height: 36px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon-links a:hover img {
+    opacity: 0.7; /* Fades the icon slightly on hover for a nice effect */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================= */
+/* RESEARCH PAGE STYLES                */
+/* ============================================= */
+
+
+
+
+
+
+/* Styles for the full-width project header */
+.project-header {
+    width: 100%;
+    padding-bottom: 10px;
+    margin-top: 40px; /* Adds space above each new project header */
+    border-bottom: 2px solid #ccc; /* A simple line to separate sections */
+}
+
+.project-header h2 {
+    margin-bottom: 5px; /* Reduces default heading margin */
+}
+
+/* Flex container for the two-column (media/text) layout */
+.project-content {
+    display: flex;
+    gap: 40px; /* Space between the media and text columns */
+    padding: 25px 0; /* Vertical space for the content area */
+}
+
+/* The left column for media */
+.project-media-column {
+    flex: 3; /* Takes up 3 "parts" of the width */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between multiple images/videos */
+}
+
+/* The right column for text */
+.project-text-column {
+    flex: 3; /* Takes up 3 "parts" of the width, making it wider than the media */
+}
+
+/* Make images and videos responsive and styled */
+.project-media-column img,
+.project-media-column video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Softens the corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+
+/* ============================================= */
+/* PERSISTENT NAVIGATION BAR                     */
+/* ============================================= */
+
+
+/* In styles.css, MODIFY your existing .main-nav rule */
+.main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* REMOVE padding, display, justify-content, and align-items from here */
+    
+    background-color: #fbfffb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 0; /* Give the bar some vertical padding */
+}
+
+/* ADD this new rule to your stylesheet */
+.nav-content-container {
+    /* These properties will align this container with your .main-stripe */
+    width: 70%; /* Or 70%, whatever your .main-stripe is using */
+    margin: 0 auto; /* This centers the container */
+
+    /* Now we apply the flexbox layout here */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+
+
+.main-nav .nav-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+    background-color: #fbfffb;
+
+    text-decoration: none;
+}
+
+.main-nav .nav-links {
+    list-style: none; /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Space between the links */
+}
+
+.main-nav .nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* Creates space for the hover effect */
+    transition: border-color 0.2s ease-in-out;
+}
+
+.main-nav .nav-links a:hover {
+    color: #006400;
+    border-bottom-color: #008800; /* Adds an underline effect on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================= */
+/* RESPONSIVE VIDEO EMBEDS                     */
+/* ============================================= */
+
+.video-responsive-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (9 / 16 = 0.5625) */
+    border-radius: 8px; /* Matches the style of your images */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.video-responsive-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
